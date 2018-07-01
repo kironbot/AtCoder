@@ -1,21 +1,41 @@
 #include <iostream>
+#include <algorithm>
+#include <functional>
 using namespace std;
 
 int main() {
-    int N;
-    int t[110000], x[110000], y[110000];
-    cin >> N;
-    t[0] = x[0] = y[0] = 0;
-    for (int i=0; i<N; ++i) cin >> t[i+1] >> x[i+1] >> y[i+1];
+    int N, K;
+    cin >> N >> K;
+    
+    int cnt[210000], A[210000];
 
-    bool can = true;
-    for (int i=0; i<N; ++i){
-        int dt = t[i+1] - t[i];
-        int dist = abs(x[i+1] - x[i]) + abs(y[i+1] - y[i]);
-        if (dt < dist) can = false;
-        if (dist % 2 != dt % 2) can = false;
+    for (int i=0; i<210000; i++){
+        cnt[i] = 0;
+        A[i] = 0;
     }
 
-    if (can) cout << "Yes" << endl;
-    else cout << "No" << endl;
+    int uniq=0;
+    for (int i=0; i<N; i++){
+        cin >> A[i];
+        if (cnt[A[i]] == 0) uniq++;
+        cnt[A[i]]++;
+    }
+
+    sort(cnt, cnt+210000);
+
+    if(uniq <= K){
+        cout << 0 << endl;
+    }
+    else{
+        int res=0, i=0, j=0;
+        while(j < uniq-K){
+            if (cnt[i] > 0){
+                res += cnt[i];
+                j++;
+            }
+            i++;
+        }
+        cout << res << endl;
+    }
+
 }
