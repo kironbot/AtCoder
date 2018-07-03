@@ -3,12 +3,12 @@
 #include <vector>
 #include <algorithm>
 #include <set>
-#include <stack>
-#include <deque>
-#include <cmath>
-#include <map>
-#define int long long
 using namespace std;
 
 int main() {
+    int N;
+    cin >> N;
+
+    if (N % 2 == 0) cout << N << endl;
+    else cout << 2*N << endl;
 }
