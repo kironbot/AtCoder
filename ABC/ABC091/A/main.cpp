@@ -11,4 +11,8 @@ using ll = long long;
 using namespace std;
 
 int main() {
+    ll A, B, C;
+    cin >> A >> B >> C;
+
+    puts(A+B >=C ? "Yes" : "No");
 }

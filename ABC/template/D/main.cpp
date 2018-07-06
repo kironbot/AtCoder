@@ -7,7 +7,7 @@
 #include <deque>
 #include <cmath>
 #include <map>
-#define int long long
+using ll = long long;
 using namespace std;
 
 int main() {

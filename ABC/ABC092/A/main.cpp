@@ -11,4 +11,8 @@ using ll = long long;
 using namespace std;
 
 int main() {
+    ll A, B, C, D;
+    cin >> A >> B >> C >> D;
+
+    cout << min(A, B) + min(C, D) << endl;
 }
