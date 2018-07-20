@@ -26,7 +26,7 @@ int main() {
     }
     
     ll ans=0;
-    for (int i=0; i<N; i++){
+    for (int i=0; i<N+1; i++){
         ll sum = rsum[i] + lsum[N-i];
 
         ll rcal = x[i-1];
