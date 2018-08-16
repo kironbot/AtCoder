@@ -38,4 +38,5 @@ int main() {
         }
         ans = min(ans, num);
     }
+    cout << ans << endl;
 }
