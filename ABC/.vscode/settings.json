@@ -1,7 +1,24 @@
 {
     "git.ignoreLimitWarning": true,
     "files.associations": {
+        "*.sql": "sql",
+        "*.vue": "vue",
         "map": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "cctype": "cpp",
+        "cmath": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "type_traits": "cpp",
+        "__config": "cpp",
+        "cstddef": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "new": "cpp",
+        "stdexcept": "cpp",
+        "typeinfo": "cpp"
     }
 }
