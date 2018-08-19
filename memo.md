@@ -1,5 +1,23 @@
 # C++ 備忘録
 
+## ベクタ
+* 作成
+```c++:
+#include <vector>
+vector<int> v; // 空ベクタ
+vector<int> v(10); // 要素数10の空ベクタ
+vector<int> v(10, 1); // 要素数10，初期値1のベクタ
+```
+
+* ソート
+```c++:
+vector<int> v;
+for (int i = 0; i < 10; i++) v.push_back(i);
+sort(v.begin(), v.end()); // 昇順ソート
+sort(v.begin(), v.end(), greater<int>()); // 降順ソート
+```
+
+
 ## マップ
 * マップ宣言
 ```c++:
