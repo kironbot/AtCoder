@@ -1,17 +1,27 @@
 # C++ 備忘録
 
 ## マップ
+* マップ宣言
 ```c++:
 #include <map>
 map<int, int> mp;
-
 for (auto p: mp){
     f = p.first;
     s = p.second;
 }
-
 ```
 
+## ビット演算
+* 2^n 全探索
+```c++:
+for(int mask = 0; mask < (1 << n); mask++){
+    for(int i = 0; i < n; i++) {
+        if(mask >> i & 1) {
+            // i ビット目が1の場合の処理
+        }
+    }
+}
+```
 
 ## 文字列
 
@@ -58,4 +68,3 @@ m = log2(16); // 4
 double m;
 m = pow(2, 3); // 8
 ```
-
