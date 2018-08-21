@@ -11,4 +11,7 @@ using ll = long long;
 using namespace std;
 
 int main() {
+  int x;
+  cin >> x;
+  cout << (int)sqrt(sqrt(x)) << endl;
 }

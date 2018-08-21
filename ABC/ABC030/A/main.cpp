@@ -11,4 +11,9 @@ using ll = long long;
 using namespace std;
 
 int main() {
+  int a, b, c, d;
+  cin >> a >> b >> c >> d;
+  if (a*d > b*c) cout << "AOKI" << endl;
+  else if (a*d < b*c) cout << "TAKAHASHI" << endl;
+  else cout << "DRAW" << endl;
 }
