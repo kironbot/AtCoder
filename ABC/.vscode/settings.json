@@ -20,6 +20,10 @@
         "new": "cpp",
         "stdexcept": "cpp",
         "typeinfo": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "vector": "cpp",
+        "iosfwd": "cpp",
+        "algorithm": "cpp",
+        "iostream": "cpp"
     }
 }
