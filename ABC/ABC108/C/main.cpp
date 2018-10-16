@@ -12,6 +12,7 @@ using namespace std;
 typedef long long LL;
 
 int main() {
+<<<<<<< HEAD
   int n, k;
   cin >> n >> k;
   LL a, b;
@@ -25,4 +26,6 @@ int main() {
   }
 
   cout << a*a*a + b*b*b << endl;
+=======
+>>>>>>> c0927418ac05f339d96af50ad9544f1d7e408400
 }
