@@ -9,7 +9,8 @@
 #include <cmath>
 #include <map>
 using namespace std;
-typedef long long LL;
+using Int = long long;
+#define rep(i, n) for (Int i = 0; i < n; i++)
 
 int main() {
 }
