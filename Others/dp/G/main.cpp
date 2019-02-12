@@ -15,7 +15,7 @@ template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
 template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 
 ll n, m;
-vector<vector<ll>> G;
+vector<vector<ll>> G(100100);
 
 ll dp[100100];
 ll rec(ll v) {
@@ -30,7 +30,6 @@ ll rec(ll v) {
 
 int main() {
     cin >> n >> m;
-    G.assign(n, vector<ll>());
     rep(i, m) {
         ll x, y;
         cin >> x >> y;
