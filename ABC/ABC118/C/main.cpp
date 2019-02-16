@@ -31,7 +31,7 @@ int main() {
         ll a;
         cin >> a;
         if (i == 0) ans = a;
-        else ans = gcd(a, ans);
+        else ans = __gcd(a, ans);
     }
     cout << ans << endl;
 }
