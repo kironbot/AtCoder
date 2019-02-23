@@ -48,6 +48,6 @@ int main() {
         else if (mp[i] >= 4) pn[1]++, pn[0]++;
         else if (mp[i] >= 2) pn[0]++;
     }
-    int ans = pn[4] + max(0, pn[3] * (pn[0] - 1)) + max(0, pn[2] * (pn[1] - 1)) + max(0, (pn[1] * (pn[1] - 1))/ 2 * (pn[0] - 2));
+    int ans = pn[4] + max(0, pn[3] * (pn[0] - 1)) + max(0, pn[2] * (pn[1] - 1)) + max(0, (pn[1] * (pn[1] - 1)) / 2 * (pn[0] - 2));
     cout << ans << endl;
 }
