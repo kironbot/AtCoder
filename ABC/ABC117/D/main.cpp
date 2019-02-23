@@ -9,43 +9,39 @@
 #include <cmath>
 #include <map>
 using namespace std;
-typedef long long LL;
+using ll = long long;
+#define rep(i, n) for (ll i = 0; i < n; i++)
+template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
+template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 
 int main() {
-    LL n, k;
-    vector<LL> a;
+    ll n, k;
     cin >> n >> k;
-    for (int i=0; i<n; i++) {
-        LL tmp;
-        cin >> tmp;
-        a.push_back(tmp);
-    }
+    vector<ll> a(n);
+    rep(i, n) cin >> a[i];
 
-    LL ans = 0;
+    ll dp[100][2];
+    memset(dp, -1, sizeof(dp));
+    dp[0][0] = 0;
+    rep(d, 50) {
+        ll mask = 1LL<<(50-d-1);
+        ll num = 0;
+        rep(i, n) if (a[i] & mask) num++;
 
-    if (k == 0 || k == 1) {
-        for (int x = 0; x <= k; x++) {
-            LL tmp = 0;
-            for (int j = 0; j < n; j++) {
-                tmp += (a[j] ^ x);
-            }
-            ans = max(ans, tmp);
+        ll cost0 = mask * num;
+        ll cost1 = mask * (n - num);
+
+        if (dp[d][1] != -1) chmax(dp[d+1][1], dp[d][1] + max(cost0, cost1));
+
+        if (dp[d][0] != -1) if (k & mask) chmax(dp[d+1][1], dp[d][0] + cost0);
+
+        if (dp[d][0] != -1) {
+            if (k & mask) chmax(dp[d+1][0], dp[d][0] + cost1);
+            else chmax(dp[d+1][0], dp[d][0] + cost0);
         }
-        cout << ans << endl;
-        return 0;
     }
-
-    int start = (int)log2(k);
-    for (int i = start; i>=0; i--) {
-        LL bekihigh = 1 << (i+1);
-        LL bekilow = 1 << i;
-        LL cnt1 = 0;
-        for (int j=0; j<n; j++) {
-            if (a[j] % bekihigh >= bekilow) cnt1++;
-        }
-        ans += max(cnt1, n - cnt1) * bekilow;
-        k -= bekilow;
-    }
-
+    ll ans = 0;
+    chmax(ans, dp[50][0]);
+    chmax(ans, dp[50][1]);
     cout << ans << endl;
 }
