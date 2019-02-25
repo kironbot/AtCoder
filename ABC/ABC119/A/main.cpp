@@ -17,6 +17,6 @@ template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 int main() {
     string s;
     cin >> s;
-    if (s.substr(5, 2) == "01" || s.substr(5, 2) == "02"|| s.substr(5, 2) == "03" || s.substr(5, 2) == "04") cout << "Heisei" << endl;
+    if (s <= "2019/04/30") cout << "Heisei" << endl;
     else cout << "TBD" << endl;
 }
