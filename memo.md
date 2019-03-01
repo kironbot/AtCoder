@@ -1,5 +1,12 @@
 # C++ 備忘録
 
+## ToBe
+ライブラリ化
+* Binary Indexed Tree
+* Segment Tree
+* Matrix
+* Modint
+
 ## 配列
 * 初期化
 ```c++:
