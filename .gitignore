@@ -13,3 +13,6 @@ ABC/template/C/main.cpp
 ABC/template/B/main.cpp
 ABC/template/D/main.cpp
 ABC/template/B/main.cpp
+ABC/.vscode/c_cpp_properties.json
+ABC/.vscode/launch.json
+ABC/.vscode/tasks.json
