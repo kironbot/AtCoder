@@ -2,6 +2,7 @@
 
 ## ToBe
 ライブラリ化
+* Union Find
 * Binary Indexed Tree
 * Segment Tree
 * Matrix
