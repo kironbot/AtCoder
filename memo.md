@@ -17,10 +17,11 @@ dp[N][M] = {}; // 0で初期化される
 ## ベクタ
 * 作成
 ```c++:
-#include <vector>
 vector<int> v; // 空ベクタ
 vector<int> v(10); // 要素数10の空ベクタ
 vector<int> v(10, 1); // 要素数10，初期値1のベクタ
+v.emplace_back(2); // 末尾に要素2を追加
+v.emplace(v.begin(), 2); // 先頭に要素2を追加
 ```
 
 * ソート
@@ -31,11 +32,20 @@ sort(v.begin(), v.end()); // 昇順ソート
 sort(v.begin(), v.end(), greater<int>()); // 降順ソート
 ```
 
+## ペア
+* 作成
+```c++:
+vector<pair<int, int>> p; // (int, int) を各要素に持つベクターを作成
+p.emplace_back(1, 2); // 末尾に(1, 2)を追加
+p.emplace(p.begin(), 1, 2); // 先頭に(1, 2)を追加
+p[i].first; i-indexの1番目の要素
+p[i].second; i-indexの2番目の要素
+```
+
 
 ## マップ
 * マップ宣言
 ```c++:
-#include <map>
 map<int, int> mp;
 for (auto p: mp){
     f = p.first;
