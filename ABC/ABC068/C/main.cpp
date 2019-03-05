@@ -11,21 +11,18 @@ template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 int main() {
     ll n, m;
     cin >> n >> m;
-    vector<pair<ll, ll>> p;
+    map<ll, ll> mp[220000];
     rep(i, 0, m) {
         ll a, b;
         cin >> a >> b;
         a--, b--;
-        p.emplace_back(a, b);
+        mp[a][b] = 1, mp[b][a] = 1;
     }
-    sort(p.begin(), p.end());
-    bool ok = false;
-    rep(i, 0, m) {
-        if (p[i].first != 0) break;
-        rep(j, 0, m) {
-            if (p[i].second == p[j].first && p[j].second == n-1) ok = true;
+    rep(i, 1, n-1) {
+        if (mp[0][i] == 1 && mp[i][n-1] == 1) {
+            cout << "POSSIBLE" << endl;
+            return 0;
         }
     }
-    if (ok) cout << "POSSIBLE" << endl;
-    else cout << "IMPOSSIBLE" << endl;
+    cout << "IMPOSSIBLE" << endl;
 }
