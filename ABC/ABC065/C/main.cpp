@@ -16,7 +16,7 @@ int main() {
     memo[1] = 1;
     rep(i, 2, MAX+1) memo[i] = (memo[i-1] * i) % MOD;
 
-    if (abs(n-m) > 2) cout << 0 << endl;
+    if (abs(n-m) > 1) cout << 0 << endl;
     else if (abs(n-m) == 1) cout << memo[n] * memo[m] % MOD << endl;
     else cout << 2 * memo[n] * memo[m] % MOD << endl;
 }
