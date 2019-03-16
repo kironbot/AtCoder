@@ -13,13 +13,23 @@ int main() {
     string s;
     cin >> n >> s;
     ll sum = 0, cnt = 1;
+    bool flgA = true;
     for (auto c : s) {
         if (c == 'A') {
             sum += cnt;
             cnt++;
         }
-        else cnt = 1;
+        else {
+            cnt = 1;
+            flgA = false;
+        }
     }
+    if (flgA) {
+        cout << (n*s.size())*(n*s.size()+1)/2 << endl;
+        return 0;
+    }
+
+
     ll cnt_front = 0, cnt_end = 0;
     for (auto c : s) {
         if (c == 'A') cnt_front++;
