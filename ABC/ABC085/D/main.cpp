@@ -18,9 +18,9 @@ int main() {
 
     ll ans = 0;
     rep(i, 0, n) {
-        if (b[i] > a[0]) h -= b[i], ans++;
+        if (h > 0 && b[i] > a[0]) h -= b[i], ans++;
         else break;
     }
-    ans += (h+a[0]-1)/a[0];
+    if(h > 0) ans += (h+a[0]-1)/a[0];
     cout << ans << endl;
 }
