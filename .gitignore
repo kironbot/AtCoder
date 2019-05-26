@@ -1,8 +1,7 @@
-ARC/template/A/main.cpp
-ARC/template/D/main.cpp
-ARC/template/B/main.cpp
-ARC/template/C/main.cpp
+.vscode/*
 ABC/.vscode/*
-/.vscode/*
-/.DS_Store
-ABC/.DS_Store
+ABC/*/.vscode/*
+AGC/.vscode/*
+AGC/*/.vscode/*
+Others/.vscode/*
+Others/*/.vscode/*
