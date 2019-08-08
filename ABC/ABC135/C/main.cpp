@@ -16,7 +16,7 @@ int main() {
     rep(i, 0, n) cin >> b[i];
 
     ll ans = 0;
-    rep(i, 0, n+1) {
+    rep(i, 0, n) {
        ll x = min(b[i], a[i]);
        ans += x, a[i] -= x, b[i] -= x;
        ll y = min(b[i], a[i+1]);
