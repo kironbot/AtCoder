@@ -15,5 +15,5 @@ int main() {
         cout << 0 << endl;
         return 0;
     }
-    cout << (b+a-1)/a << endl;
+    cout << (b-1+a-2)/(a-1) << endl;
 }
