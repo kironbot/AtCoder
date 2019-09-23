@@ -11,5 +11,9 @@ template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 int main() {
     ll a, b;
     cin >> a >> b;
+    if(b==1) {
+        cout << 0 << endl;
+        return 0;
+    }
     cout << (b+a-1)/a << endl;
 }
