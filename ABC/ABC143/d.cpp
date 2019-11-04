@@ -9,4 +9,16 @@ template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
 template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 
 int main() {
+    ll n;
+    cin >> n;
+    vector<ll> l(n);
+    rep(i, 0, n) cin >> l[i];
+    sort(l.begin(), l.end());
+
+    ll ans = 0;
+    rep(i, 0, n) rep(j, i+1, n) {
+        auto itr = lower_bound(l.begin(), l.end(), l[i] + l[j]);
+        if (j < itr - l.begin()) ans += (itr - l.begin() - j - 1);
+    }
+    cout << ans << endl;
 }
