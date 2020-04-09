@@ -15,4 +15,16 @@ template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
 template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 
 int main() {
+    ll N;
+    cin >> N;
+    bool ok = true;
+    rep(i, N) {
+        ll a;
+        cin >> a;
+        if(a % 2 == 0) {
+            if(a % 3 != 0 && a % 5 != 0) ok = false;
+        }
+    }
+    if(ok) cout << "APPROVED" << endl;
+    else cout << "DENIED" << endl;
 }
