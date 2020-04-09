@@ -15,4 +15,15 @@ template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
 template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 
 int main() {
+    ll N;
+    cin >> N;
+    vll A(N);
+    rep(i, N) cin >> A[i];
+    sort(A.begin(), A.end());
+    bool ok = true;
+    rep(i, N-1) {
+        if(A[i] == A[i+1]) ok = false;
+    }
+    if(ok) cout << "YES" << endl;
+    else cout << "NO" << endl;
 }
