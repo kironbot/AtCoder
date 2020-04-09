@@ -15,4 +15,12 @@ template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
 template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 
 int main() {
+    ll N, K;
+    cin >> N >> K;
+    vll H(N);
+    rep(i, N) cin >> H[i];
+    sort(H.begin(), H.end(), greater<ll>());
+    ll ans = 0;
+    for(ll i = K; i < N; i++) ans += H[i];
+    cout << ans << endl;
 }

@@ -15,4 +15,14 @@ template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
 template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 
 int main() {
+    ll H, N;
+    cin >> H >> N;
+    ll total = 0;
+    rep(i, N) {
+        ll a;
+        cin >> a;
+        total += a;
+    }
+    if(total >= H) cout << "Yes" << endl;
+    else cout << "No" << endl;
 }

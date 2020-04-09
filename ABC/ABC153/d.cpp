@@ -14,5 +14,13 @@ const ll MOD = 1e9 + 7;
 template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
 template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 
+ll cnt(ll n) {
+    if(n == 1) return 1;
+    return 2 * cnt(n / 2) + 1;
+}
+
 int main() {
+    ll H;
+    cin >> H;
+    cout << cnt(H) << endl;
 }
