@@ -25,55 +25,16 @@ int main() {
 
     ll N, K;
     cin >> N >> K;
-    vvll g(N);
-    rep(i, N) {
-        ll a;
-        cin >> a;
-        a--;
-        g[i].push_back(a);
+    vll a(N+1);
+    rep(i, N) cin >> a[i+1];
+
+    ll c = 1;
+    while(K) {
+        if(K % 2 == 1) c = a[c];
+        vll na(N+1);
+        rep(i, N+1) na[i] = a[a[i]];
+        swap(na, a);
+        K /= 2;
     }
-
-    vector<bool> check(N, false);
-    queue<ll> que;
-    que.push(0);
-    bool end = false;
-    vll dist(N, 0);
-    dist[0] = 0;
-    ll loop = -1, cnt = 0;
-
-    while((!que.empty()) && (!end)) {
-        ll now = que.front();
-        que.pop();
-        check[now] = true;
-
-        for(auto next : g[now]) {
-            cnt++;
-            if(check[next]) {
-                end = true;
-                loop = next;
-                continue;
-            }
-            que.push(next);
-            dist[next] = dist[now] + 1;
-        }
-    }
-
-    debug(loop)
-    debug(cnt)
-
-    ll ans = -1;
-    if(K <= dist[loop]) {
-        rep(i, N) if(dist[i] == K) ans = i+1;
-        cout << ans << endl;
-        return 0;
-    }
-
-    ll res = (K - dist[loop]) % (cnt - dist[loop]);
-    debug(res)
-
-    ans = loop;
-    rep(i, res) {
-        ans = g[ans][0];
-    }
-    cout << ans + 1 << endl;
+    cout << c << endl;
 }
