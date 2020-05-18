@@ -19,23 +19,27 @@ template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 #endif
 
 struct Edge {
-    long long to;
-    long long cost;
+    ll to;
+    ll cost;
+    Edge(ll to, ll cost) : to(to), cost(cost) {}
 };
 using Graph = vector<vector<Edge>>;
 using P = pair<long, int>;
 vll dist;
 vector<int> pre;
 
-/* dijkstra(G,s,dis,prev)
-    入力：グラフ G, 開始点 s, 距離を格納する dis, 最短経路の前の点を記録するprev
+/*  経路復元 dijkstra(G,s,dis,pre)
+
+    verify: ABC168/D https://atcoder.jp/contests/abc168/tasks/abc168_d
+
+    入力：グラフ G, 開始点 s, 距離を格納する dis, 最短経路の前の点を記録するpre
     計算量：O(|E|log|V|)
-    副作用：dis, prevが書き換えられる
+    副作用：dis, preが書き換えられる
 */
-void dijkstra(const Graph &G, int s, vector<long long> &dis, vector<int> &prev) {
+void dijkstra(const Graph &G, int s, vector<long long> &dis, vector<int> &pre) {
     int N = G.size();
     dis.resize(N, INF);
-    prev.resize(N, -1); // 初期化
+    pre.resize(N, -1); // 初期化
     priority_queue<P, vector<P>, greater<P>> pq;
     dis[s] = 0;
     pq.emplace(dis[s], s);
@@ -49,7 +53,7 @@ void dijkstra(const Graph &G, int s, vector<long long> &dis, vector<int> &prev) 
         for (auto &e : G[v]) {
             if (dis[e.to] > dis[v] + e.cost) {
                 dis[e.to] = dis[v] + e.cost;
-                prev[e.to] = v; // 頂点 v を通って e.to にたどり着いた
+                pre[e.to] = v; // 頂点 v を通って e.to にたどり着いた
                 pq.emplace(dis[e.to], e.to);
             }
         }
@@ -69,11 +73,8 @@ int main() {
         ll a, b;
         cin >> a >> b;
         a--, b--;
-        Edge e1, e2;
-        e1.to = b, e1.cost = 1;
-        e2.to = a, e2.cost = 1;
-        g[a].push_back(e1);
-        g[b].push_back(e2);
+        g[a].emplace_back(b, 1);
+        g[b].emplace_back(a, 1);
     }
 
     dijkstra(g, 0, dist, pre);
