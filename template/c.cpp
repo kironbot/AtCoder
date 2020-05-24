@@ -19,8 +19,6 @@ template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
 #endif
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+    cin.tie(0);ios::sync_with_stdio(false);cout << fixed << setprecision(20);
 
 }
