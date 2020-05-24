@@ -18,17 +18,33 @@ template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
     #define debug(x)
 #endif
 
+double dp[310][310][310];
+
 int main() {
     cin.tie(0);ios::sync_with_stdio(false);cout << fixed << setprecision(20);
 
     ll N; cin >> N;
-    vll h(N); rep(i,N) cin >> h[i];
-
-    vll dp(N+1, INF);
-    dp[0] = 0;
+    vll cnt(4, 0);
     rep(i, N) {
-        if(i-1 >= 0) chmin(dp[i], dp[i-1] + abs(h[i] - h[i-1]));
-        if(i-2 >= 0) chmin(dp[i], dp[i-2] + abs(h[i] - h[i-2]));
+        ll a;
+        cin >> a;
+        cnt[a]++;
     }
-    cout << dp[N-1] << endl;
+
+    for(ll i = 0; i <= N; i++) {
+        for(ll j = 0; j <= N; j++) {
+            for(ll k = 0; k <= N; k++) {
+                double s = i + j + k;
+                if(s == 0) {
+                    dp[i][j][k] = 0;
+                    continue;
+                }
+                dp[i][j][k] += (double)N / s;
+                if(i-1 >= 0) dp[i][j][k] += dp[i-1][j+1][k] * i / s;
+                if(j-1 >= 0) dp[i][j][k] += dp[i][j-1][k+1] * j / s;
+                if(k-1 >= 0) dp[i][j][k] += dp[i][j][k-1] * k / s;
+            }
+        }
+    }
+    cout << dp[cnt[3]][cnt[2]][cnt[1]] << endl;
 }

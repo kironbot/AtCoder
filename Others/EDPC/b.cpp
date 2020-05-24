@@ -1,31 +1,35 @@
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <vector>
-#include <algorithm>
-#include <set>
-#include <stack>
-#include <deque>
-#include <cmath>
-#include <map>
+#include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i, n) for (ll i = 0; i < n; i++)
+using vll = vector<ll>;
+using vvll = vector<vll>;
+using vc = vector<char>;
+using vvc = vector<vc>;
+using pll = pair<ll, ll>;
+using stkll = vector<pll>;
+const ll INF = 1LL << 60;
+const ll MOD = 1e9 + 7;
+#define rep(i, n) for (ll i = 0; i < (n); i++)
 template<typename T1,typename T2> inline void chmin(T1 &a,T2 b){if(a>b) a=b;}
 template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
+#ifndef ONLINE_JUDGE
+    #define debug(x) cerr << #x << ": " << x << endl;
+#else
+    #define debug(x)
+#endif
 
 int main() {
-    ll n, k;
-    cin >> n >> k;
-    vector<ll> h(n);
-    rep(i, n) cin >> h[i];
-    vector<ll> dp(n);
+    cin.tie(0);ios::sync_with_stdio(false);cout << fixed << setprecision(20);
+
+    ll N, K; cin >> N >> K;
+    vll h(N); rep(i,N) cin >> h[i];
+
+    vll dp(N+1, INF);
     dp[0] = 0;
-    for (ll i = 1; i < n; i++) {
-        dp[i] = 1LL<<60;
-        for (ll j = 1; j <= k; j++) {
-            if (i-j >= 0) chmin(dp[i], dp[i-j] + abs(h[i] - h[i-j]));
+    rep(i, N) {
+        for(ll j = 1; j <= K; j++) {
+            if(i-j >= 0) chmin(dp[i], dp[i-j] + abs(h[i] - h[i-j]));
         }
     }
-    cout << dp[n-1] << endl;
+    cout << dp[N-1] << endl;
 }

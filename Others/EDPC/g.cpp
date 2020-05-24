@@ -18,29 +18,35 @@ template<typename T1,typename T2> inline void chmax(T1 &a,T2 b){if(a<b) a=b;}
     #define debug(x)
 #endif
 
-ll dp[3100][3100];
+
+vvll g;
+ll memo[110000];
+bool done[110000];
+ll dfs(ll v) {
+    if(done[v]) return memo[v];
+
+    ll ret = 0;
+    for(auto to : g[v]) {
+        chmax(ret, dfs(to) + 1);
+    }
+    done[v] = true;
+    memo[v] = ret;
+    return memo[v];
+}
 
 int main() {
     cin.tie(0);ios::sync_with_stdio(false);cout << fixed << setprecision(20);
 
-    string s, t;
-    cin >> s >> t;
-
-    ll n = s.size(), m = t.size();
-
-    for(ll i = 1; i <= n; i++) {
-        for(ll j = 1; j <= m; j++) {
-            if(s[i-1] == t[j-1]) dp[i][j] = dp[i-1][j-1] + 1;
-            else dp[i][j] = max(dp[i][j-1], dp[i-1][j]);
-        }
+    ll N, M; cin >> N >> M;
+    g.resize(N);
+    rep(i, M) {
+        ll x, y;
+        cin >> x >> y;
+        x--, y--;
+        g[x].push_back(y);
     }
 
-    string ans;
-    while(n >= 0 && m >= 0) {
-        if(dp[n][m] == dp[n][m-1]) m--;
-        else if(dp[n][m] == dp[n-1][m]) n--;
-        else ans += s[n-1], n--, m--;
-    }
-    reverse(ans.begin(), ans.end());
+    ll ans = 0;
+    rep(i, N) chmax(ans, dfs(i));
     cout << ans << endl;
 }
