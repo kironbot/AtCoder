@@ -11,6 +11,7 @@
 - bit全探索
     - 2^20、3^16 あたりは間に合う
     - 部分集合の全探索は3^Nでいける。for(S ⊂ A) for(T ⊂ S) {}; 
+        - rep(s, 1<<N) for(ll t = s; t > 0; t = (t-1)&s) {};
         - EDPC/U
 - BFS
     - BFSの計算量は"queueにpushされる最大回数"
