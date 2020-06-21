@@ -67,11 +67,14 @@
         - 両端を*set.begin(), *set.rbegin()で参照
         - set.erase(x) は全削除。set.erase(set.find(x)) が1個削除。返り値は削除された次の要素のイテレータ
         - ABC170/E
-
+- XOR
+    - a^b = b^a
+    - a^(b^c) = (a^b)^c
+    - a^a=0
+    - a+b = a^b + 2(a&b)
+    - 0^1^2^3 = 0
 
 ## ToBe
-ライブラリ化
-- Matrix
 - 座標圧縮
 
 ## ペア
