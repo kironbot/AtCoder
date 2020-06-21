@@ -63,7 +63,9 @@
             - ABC139/F
 - multiset, priority_queue
     - ほぼ同じことができる。要素をソートして保持。先頭要素取得：O(1), 挿入・発見・削除：O(logN)
-    - multisetなら両端を*set.begin(), *set.rbegin()で参照できる。
+    - multiset
+        - 両端を*set.begin(), *set.rbegin()で参照
+        - set.erase(x) は全削除。set.erase(set.find(x)) が1個削除。返り値は削除された次の要素のイテレータ
         - ABC170/E
 
 
